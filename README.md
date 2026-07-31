@@ -1,153 +1,195 @@
-Hybrid Cryptography & Steganography System
+# 🔐 ***Hybrid Cryptography & Steganography System***
 
-A secure data protection system that combines **Cryptography** and **Steganography** to provide an additional layer of security for sensitive information. The application supports secure text and image hiding using password-based encryption while also offering steganalysis capabilities to detect hidden content within images.
-
-
-📖 Overview
-
-Traditional encryption protects the content of a message but does not hide its existence. Steganography conceals the presence of data inside digital media but, by itself, may be vulnerable to unauthorized extraction or analysis.
-
-This project integrates both techniques into a single system, ensuring that confidential information is **encrypted before being embedded**, providing enhanced confidentiality, integrity, and security.
-
-
-✨ Features
-
-- 🔒 Password-based text encryption
-- 🖼️ Hide encrypted text inside images
-- 🖼️ Hide one image inside another image
-- 🔑 Password-protected image embedding
-- 🔍 Steganography detection module
-- 📤 Secure data extraction with authentication
-- 🎯 Simple graphical user interface
-- 💻 Offline desktop application
-
-
-## 🏗️ System Workflow
-'
-                 User Input
-                     │
-        ┌────────────┴────────────┐
-        │                         │
-     Secret Text             Secret Image
-        │                         │
- Password-Based          Password-Based
-   Encryption          Image Encryption
-        │                         │
-        └────────────┬────────────┘
-                     │
-               LSB Embedding
-                     │
-               Stego Image
-                     │
-          Secure Transmission
-                     │
-        ┌────────────┴────────────┐
-        │                         │
- Text Extraction          Image Extraction
-        │                         │
- Password Verification    Password Verification
-        │                         │
-      Original Secret Data Retrieved
-
-
-🛠️ Technologies Used
-
-- Python 3.x
-- Tkinter
-- Pillow (PIL)
-- Cryptography Library (Fernet)
-- PBKDF2 Password-Based Key Derivation
-- LSB (Least Significant Bit) Steganography
-
-
-
-🔐 Text Encryption
-
-- Password-based encryption using PBKDF2
-- Secure symmetric encryption using Fernet
-- Converts encrypted data into binary for embedding
-
-
-🖼️ Text-in-Image Steganography
-
-- Embeds encrypted text into an image
-- Uses Least Significant Bit (LSB) embedding
-- Maintains visual quality of the cover image
-
-
-🖼️ Image-in-Image Steganography
-
-- Hides a secret image inside another image
-- Uses password-protected nibble masking
-- Preserves image appearance while embedding data
-
-
-🔍 Steganography Detection
-
-- Detects possible hidden content inside images
-- Performs LSB statistical analysis
-- Estimates the likelihood of steganographic manipulation
-
-📁 Project Structure
-
-
-Hybrid-Cryptography-Steganography/
-│
-├── sample_images/             # Sample cover and secret images for testing
-│
-├── static/
-│   ├── css/                   # Stylesheets
-│   ├── uploads/               # User uploaded images
-│   └── results/  
-├── templates/
-│   ├── index.html             # Home page
-│   ├── text.html              # Text-in-Image Steganography
-│   ├── image.html             # Image-in-Image Steganography
-│   └── detect.html
-├── requirements.txt
-├── README.md
-└── app.py
-
+A secure web-based application that combines **Cryptography** and **Steganography** to provide multi-layered protection for sensitive information. The system supports password-based encryption for text and images, secure LSB-based data embedding, and steganalysis to detect hidden content within digital images.
 
 ---
 
-## 🚀 Getting Started
+## 📖 Overview
 
-### Clone the Repository
+Traditional encryption protects the contents of a message but does not conceal its existence. Steganography hides confidential information inside digital media, making communication less noticeable. However, steganography alone may still be vulnerable to extraction and analysis.
+
+This project integrates **Cryptography** and **Steganography** into a single secure framework, ensuring that sensitive information is first encrypted and then invisibly embedded inside images for enhanced confidentiality and protection.
+
+---
+
+# ✨ Features
+
+- 🔒 Password-based text encryption
+- 🖼️ Secure Text-in-Image Steganography
+- 🖼️ Secure Image-in-Image Steganography
+- 🔑 Password-protected image embedding
+- 🔍 LSB-based Steganography Detection
+- 📤 Secure data extraction with authentication
+- 🌐 Web-based user interface using Flask
+- 💻 Offline execution with local processing
+
+---
+
+# 🏗️ System Workflow
+
+```text
+                         User Input
+                             │
+             ┌───────────────┴───────────────┐
+             │                               │
+        Secret Text                    Secret Image
+             │                               │
+     Password-Based                 Password-Based
+        Encryption                 Image Encryption
+             │                               │
+             └───────────────┬───────────────┘
+                             │
+                      LSB Embedding
+                             │
+                        Stego Image
+                             │
+                  Secure Image Transmission
+                             │
+             ┌───────────────┴───────────────┐
+             │                               │
+      Text Extraction                 Image Extraction
+             │                               │
+     Password Verification      Password Verification
+             │                               │
+             └───────────────┬───────────────┘
+                             │
+                  Original Secret Data
+```
+
+---
+
+# 🛠️ Technologies Used
+
+- Python 3.x
+- Flask
+- HTML5
+- CSS3
+- Pillow (PIL)
+- Cryptography (Fernet)
+- PBKDF2 Password-Based Key Derivation
+- Least Significant Bit (LSB) Steganography
+
+---
+
+# 📌 Modules
+
+## 🔐 Text Encryption
+
+- Password-based encryption using PBKDF2
+- Secure symmetric encryption with Fernet
+- Converts encrypted data into binary before embedding
+
+---
+
+## 🖼️ Text-in-Image Steganography
+
+- Embeds encrypted text inside images
+- Uses LSB (Least Significant Bit) embedding
+- Preserves visual quality of the cover image
+
+---
+
+## 🖼️ Image-in-Image Steganography
+
+- Hides one image inside another image
+- Uses password-protected nibble masking
+- Maintains image quality while embedding secret data
+
+---
+
+## 🔍 Steganography Detection
+
+- Detects hidden information inside images
+- Performs LSB statistical analysis
+- Estimates the probability of steganographic manipulation
+
+---
+
+# 📁 Project Structure
+
+```
+Hybrid-Cryptography-Steganography/
+│
+├── sample_images/   #Sample cover and secret images
+│  
+├── static/
+│   ├── css  #Stylesheet      
+│   │
+│   ├── uploads/  #Uploaded user images
+│   │  
+│   └── results/  #Generated stego images and extracted outputs
+│       
+├── templates/
+│   ├── index.html
+│   ├── text.html
+│   ├── image.html
+│   └── detect.html
+│
+├── app.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# 🚀 Getting Started
+
+## 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/syedroshanriyan/hybrid-stegnography-and-cryptography.git
 ```
 
-### Navigate to the Project
+---
+
+## 2️⃣ Navigate to the Project Directory
 
 ```bash
 cd hybrid-stegnography-and-cryptography
 ```
 
-### Install Dependencies
+---
+
+## 3️⃣ Install Required Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run the Application
+---
+
+## 4️⃣ Run the Application
 
 ```bash
 python app.py
 ```
 
+---
 
- 📸 user interaction
+## 5️⃣ Open in Browser
 
-- Home Interface
-- Text Encryption
-- Text Steganography
-- Image Steganography
-- Steganography Detection
+Visit:
+
+```
+http://127.0.0.1:5000/
+```
+
+---
+
+# 📸 User Interface
+
+The application provides an intuitive web interface consisting of:
+
+- 🏠 Home Page
+- 🔐 Text Encryption
+- 🖼️ Text-in-Image Module
+- 🖼️ Image-in-Image Module
+- 🔍 Steganography Detection
 
 
-🎯 Applications
+---
+
+# 🎯 Applications
 
 - Secure Communication
 - Military & Defense
@@ -157,43 +199,63 @@ python app.py
 - Secure Image Sharing
 - Corporate Information Security
 
+---
 
-🔒 Security Highlights
+# 🔒 Security Highlights
 
-- Password-based authentication
-- Encryption before embedding
-- Multi-layer data protection
-- Hidden communication channel
-- Steganography detection support
+- Password-Based Authentication
+- Multi-layer Security Architecture
+- Encryption Before Embedding
+- Hidden Communication Channel
+- Secure Data Recovery
+- LSB Steganography Detection
 
+---
 
-🔮 Future Enhancements
+# 🔮 Future Enhancements
 
-- AES-256 encryption support
-- Audio and video steganography
-- AI-based steganalysis
-- Cloud storage integration
-- Drag-and-drop interface
-- Cross-platform desktop application
+- AES-256 Encryption
+- Audio Steganography
+- Video Steganography
+- AI-Based Steganalysis
+- Cloud Storage Integration
+- Drag-and-Drop Interface
+- Cross-Platform Deployment
 
- 🤝 Contributing
+---
+
+# 🤝 Contributing
 
 Contributions are welcome.
 
-If you'd like to improve this project, feel free to fork the repository, create a new branch, and submit a pull request.
+If you have ideas for improving this project:
 
+1. Fork the repository.
+2. Create a new feature branch.
+3. Commit your changes.
+4. Push the branch.
+5. Open a Pull Request.
 
-📜 License
+---
 
-This project is intended for educational and research purposes.
+# 📜 License
 
+This project is developed for **educational**, **academic**, and **research** purposes.
 
+---
 
-👨‍💻 Author
+# 👨‍💻 Author
 
-**Syed Roshan Riyan**
-Computer Science Engineering Student
+### **Syed Roshan Riyan**
 
+**Bachelor of Engineering (Computer Science)**
 
+GitHub: https://github.com/syedroshanriyan
 
-⭐ If you found this project useful, consider giving it a star!
+---
+
+## ⭐ Support
+
+If you found this project useful, please consider **starring** the repository.
+
+It helps others discover the project and motivates future improvements.
