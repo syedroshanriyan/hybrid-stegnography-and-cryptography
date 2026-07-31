@@ -113,7 +113,8 @@ Hybrid-Cryptography-Steganography/
 ├── sample_images/   #Sample cover and secret images
 │  
 ├── static/
-│   ├── css  #Stylesheet      
+│   ├── css/
+|   |   └── style.css   #Stylesheet      
 │   │
 │   ├── uploads/  #Uploaded user images
 │   │  
