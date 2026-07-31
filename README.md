@@ -251,6 +251,7 @@ This project is developed for **educational**, **academic**, and **research** pu
 **Bachelor of Engineering (Computer Science)**
 
 GitHub: https://github.com/syedroshanriyan
+Linkedin: https://www.linkedin.com/in/syed-roshan-riyan-b871273b0/
 
 ---
 
