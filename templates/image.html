@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image Steganography</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="content">
+    <a href="/" class="back-btn">⬅ BACK</a>
+    <h1 class="title">IMAGE STEGANOGRAPHY</h1>
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <div class="split-container">
+        <!-- Left half: Hide Image -->
+        <div class="card split-panel">
+            <h2>Hide Image In Image</h2>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="hide">
+
+                <label>Cover Image</label>
+                <input type="file" name="cover" required>
+
+                <label>Secret Image</label>
+                <input type="file" name="secret" required>
+
+                <label>Password</label>
+                <input type="password" name="pw" required>
+
+                <button class="cyber-btn">Encrypt & Hide Image</button>
+            </form>
+
+            {% if image_stego %}
+            <div class="result">
+                <a href="{{ image_stego }}" download>Download Stego Image</a>
+                <img src="{{ image_stego }}">
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Right half: Retrieve Image -->
+        <div class="card split-panel">
+            <h2>Retrieve Image From Image</h2>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="extract">
+
+                <label>Stego Image</label>
+                <input type="file" name="stego" required>
+
+                <label>Password</label>
+                <input type="password" name="pw" required>
+
+                <button class="cyber-btn">Extract</button>
+            </form>
+
+            {% if image_out %}
+            <div class="result">
+                <img src="{{ image_out }}">
+                <a href="{{ image_out }}" download>Download Image</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

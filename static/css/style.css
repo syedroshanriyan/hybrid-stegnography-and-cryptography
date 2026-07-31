@@ -1,0 +1,457 @@
+/* ---- Cyber Hacker Theme with Animations ---- */
+
+body {
+    background: #020b1b;
+    font-family: Consolas, monospace;
+    color: #8efaff;
+    overflow-x: hidden;
+}
+
+/* scanline overlay */
+.scanlines {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 255, 0.05) 0px,
+        rgba(0, 255, 255, 0.02) 2px,
+        transparent 3px
+    );
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+}
+
+/* glitch title animation */
+.title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #00eaff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.glitch {
+    position: relative;
+}
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    text-shadow: -2px 0 cyan;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    clip-path: polygon(0% 0%,100% 0%,100% 33%,0% 33%);
+}
+.glitch::after {
+    text-shadow: -2px 0 blue;
+    clip-path: polygon(0% 66%,100% 66%,100% 100%,0% 100%);
+}
+.glitch:hover {
+    animation: glitch 0.7s infinite;
+}
+@keyframes glitch {
+    0% { transform: skew(0deg); }
+    20% { transform: skew(-8deg); }
+    40% { transform: skew(7deg); }
+    60% { transform: skew(-5deg); }
+    80% { transform: skew(3deg); }
+    100% { transform: skew(0deg); }
+}
+
+/* grid/cards/buttons */
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.cyber-card {
+    background: rgba(0, 34, 70, 0.35);
+    border: 1px solid #00aaff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0077ff77;
+    transition: 0.25s;
+}
+.cyber-card:hover {
+    box-shadow: 0 0 20px #00c3ff;
+}
+
+label { font-size: 0.9rem; }
+
+input, textarea {
+    width: 100%;
+    background: #031b30;
+    border: 1px solid #00aaff;
+    padding: 6px;
+    margin-bottom: 10px;
+    color: #aeeaff;
+    border-radius: 4px;
+}
+
+/* cyber animated button */
+.cyber-btn {
+    width: 100%;
+    padding: 8px;
+    background: linear-gradient(90deg, #00b7ff, #00eaff);
+    border: none;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    text-shadow: 0 0 5px #003b52;
+    transition: 0.2s;
+}
+.cyber-btn:hover {
+    filter: brightness(1.3);
+    box-shadow: 0 0 12px #00eaff;
+}
+
+.result {
+    border: 1px solid #00aaff;
+    padding: 10px;
+    margin-top: 10px;
+    background: #001a33;
+    animation: terminal 0.7s steps(40, end);
+    white-space: pre-wrap;
+}
+
+.animate-terminal {
+    animation: terminal 1.1s steps(50, end);
+}
+@keyframes terminal {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+img { width: 100%; margin-top: 10px; border-radius: 6px; }
+
+.error {
+    text-align: center;
+    background: #330000;
+    padding: 10px;
+    border: 1px solid red;
+    color: #ffb3b3;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    margin-bottom: 15px;
+    border: 1px solid #00eaff;
+    color: #00eaff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+.back-btn:hover {
+    background: #00b7ff22;
+    box-shadow: 0 0 8px #00eaff;
+}
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+.cyber-btn:hover {
+    letter-spacing: 1px;
+}
+/* Side-by-side split layout */
+.split-container {
+    display: flex;
+    flex-direction: row;       /* force horizontal layout */
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Two equal halves */
+.split-panel {
+    width: 50%;
+    min-width: 360px;          /* prevents collapsing on medium screens */
+}
+
+.card {
+    background: rgba(0, 34, 70, 0.35);
+    border: 1px solid #00aaff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0077ff77;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Glowing cyber hover effect */
+.card:hover {
+    border-color: #00eaff;
+    box-shadow: 0 0 18px #00eaff, 0 0 28px #0099ff;
+}
+/* ===== Detect page layout ===== */
+
+.detect-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.detect-subtitle {
+    margin-bottom: 1.5rem;
+    color: #9ed9ff;
+    font-size: 0.95rem;
+}
+
+.detect-card {
+    background: radial-gradient(circle at top left, #022544, #010716);
+    border-radius: 14px;
+    border: 1px solid #00aaff;
+    padding: 1.5rem;
+    box-shadow: 0 0 18px #0077ff66;
+}
+
+.detect-card:hover {
+    box-shadow: 0 0 26px #00eaffaa;
+    border-color: #00eaff;
+}
+
+.detect-form {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #004c7a;
+    padding-bottom: 1rem;
+}
+
+/* Results block */
+
+.detect-results {
+    margin-top: 0.5rem;
+}
+
+.detect-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.detect-label {
+    font-size: 0.95rem;
+    color: #c5e9ff;
+}
+
+.detect-value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #00ffd5;
+}
+
+/* badges */
+
+.detect-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge-danger {
+    background: #ff174466;
+    border: 1px solid #ff1744;
+    color: #ffe5ec;
+}
+
+.badge-warning {
+    background: #ffb30033;
+    border: 1px solid #ffb300;
+    color: #fff3d4;
+}
+
+.badge-safe {
+    background: #00c85333;
+    border: 1px solid #00c853;
+    color: #e3ffe9;
+}
+
+/* ======================= Responsive Fixes ======================= */
+
+/* Home menu button responsiveness */
+.menu-buttons a {
+    max-width: 500px;
+    width: 90%;
+}
+
+/* Responsive split layout for Text & Image pages */
+@media (max-width: 850px) {
+    .split-container {
+        flex-direction: column;      /* stack vertically */
+        align-items: center;
+    }
+    .split-panel {
+        width: 100% !important;
+        min-width: 0;
+    }
+}
+
+/* Improve padding and readability on narrow screens */
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+    .content {
+        padding: 1.2rem;
+    }
+    .title {
+        font-size: 1.4rem;
+        line-height: 1.5rem;
+    }
+    textarea {
+        min-height: 110px;
+    }
+    .detect-prob {
+        font-size: 1rem;
+    }
+}
+
+/* Very small screen fixes */
+@media (max-width: 420px) {
+    .back-btn {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    .cyber-btn {
+        padding: 7px;
+        font-size: 0.8rem;
+    }
+    input, textarea {
+        font-size: 0.8rem;
+    }
+}
+/* ======================= Footer ======================= */
+
+.footer {
+    width: 100%;
+    margin-top: auto;
+
+    padding: 1rem 2rem;
+
+    border-top: 1px solid #00aaff55;
+
+    background: rgba(0, 17, 34, 0.85);
+
+    box-shadow: 0 -2px 15px rgba(0, 170, 255, 0.15);
+}
+
+.footer-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 1rem;
+
+    flex-wrap: wrap;
+}
+
+.copyright {
+    color: #8efaff;
+
+    font-size: 0.9rem;
+
+    text-shadow: 0 0 6px rgba(0, 234, 255, 0.4);
+}
+
+.profile-links {
+    display: flex;
+
+    gap: 1rem;
+
+    flex-wrap: wrap;
+}
+
+.profile-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.4rem;
+
+    padding: 0.5rem 0.9rem;
+
+    color: #8efaff;
+
+    text-decoration: none;
+
+    border: 1px solid #00aaff66;
+
+    border-radius: 6px;
+
+    background: rgba(0, 34, 70, 0.35);
+
+    transition:
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+.profile-link:hover {
+    color: #ffffff;
+
+    border-color: #00eaff;
+
+    box-shadow:
+        0 0 10px #00eaff,
+        0 0 20px rgba(0, 234, 255, 0.35);
+
+    transform: translateY(-2px);
+}
+
+.profile-link i {
+    font-style: normal;
+
+    font-size: 1rem;
+}
+
+/* ===== Responsive Footer ===== */
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 1rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .profile-links {
+        justify-content: center;
+    }
+
+    .copyright {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .profile-links {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+    .profile-link {
+        width: 100%;
+
+        justify-content: center;
+    }
+}

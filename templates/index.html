@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard - Secure Steganography System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/css/style.css">
+
+<style>
+/* Make home body fill screen */
+.home-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Keep homepage content centered */
+.home-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-width: 900px;
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* Typing effect */
+.typing {
+    width: 42ch;
+    margin: 0 auto 30px auto;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #00eaff;
+    animation: typing 4s steps(42), blink .5s step-end infinite alternate;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+@keyframes typing {
+    from { width: 0; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Buttons column */
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.menu-buttons a {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Title */
+.title-glitch {
+    font-size: 50px;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .home-container {
+        padding: 1rem;
+    }
+
+    .title-glitch {
+        font-size: 45px;
+        line-height: 1.3;
+        padding: 0 0.5rem;
+    }
+
+    .typing {
+        width: 100%;
+        max-width: 95vw;
+        font-size: 14px;
+        white-space: normal;
+        border-right: none;
+    }
+
+    .menu-buttons a {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 420px) {
+    .title-glitch {
+        font-size: 22px;
+    }
+
+    .typing {
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body class="home-body">
+
+    <div class="home-container">
+
+        <h2 class="title-glitch"
+            data-text="HYBRID STEGANOGRAPHY & CRYPTOGRAPHY SYSTEM">
+            HYBRID STEGANOGRAPHY & CRYPTOGRAPHY SYSTEM
+        </h2>
+
+        <h2 class="typing">
+            Hey..!!! <br>
+            READY TO SECURE WITH DOUBLE ENCRYPTION !!
+        </h2>
+
+        <div class="menu-buttons">
+
+            <a href="/text">
+                <button class="cyber-btn">
+                    🔤 TEXT STEGANOGRAPHY
+                </button>
+            </a>
+
+            <a href="/image">
+                <button class="cyber-btn">
+                    🖼 IMAGE STEGANOGRAPHY
+                </button>
+            </a>
+
+            <a href="/detect">
+                <button class="cyber-btn">
+                    🔍 DETECT STEGANOGRAPHY
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="copyright">
+               <pre>  &copy; 2025 - Syed Roshan Riyan.  All rights reserved.  </pre>       
+            </div>
+
+            <div class="profile-links">
+
+                <a href="https://github.com/syedroshanriyan"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="profile-link">
+                    <i>🐙</i> GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/in/syed-roshan-riyan-b871273b0?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="profile-link">
+                    <i>🔗</i> LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

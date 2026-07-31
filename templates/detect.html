@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Steganography Detector</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/css/style.css">
+<style>
+.detect-prob { font-size: 1.2rem; font-weight: bold; color: #00eaff; }
+.status-clean { color: #00ff99; font-weight: bold; }
+.status-suspicious { color: #ff4d4d; font-weight: bold; }
+.light-stats { color: #7ac2ff; font-size: 0.85rem; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="content">
+<a href="/" class="back-btn">⬅ BACK</a>
+
+<h1 class="title">STEGO DETECTOR</h1>
+
+{% if error %}
+<div class="error">{{ error }}</div>
+{% endif %}
+
+<div class="card">
+    <h2>Detect Steganography</h2>
+<form method="POST" enctype="multipart/form-data">
+    <label>Image To Analyze:</label><br>
+    <input type="file" name="img" required>
+    <button class="cyber-btn">Analyze</button>
+</form>
+
+{% if prob is not none %}
+<pre class="result">
+
+<span class="detect-prob">Steganography Probability: {{ prob }}%</span>
+
+{% if status_code == 'suspicious' %}
+<span class="status-suspicious">Status: Suspicious (Likely Steganography)</span>
+{% elif status_code == 'possible' %}
+<span class="status-warning">Status: Possible (Not Conclusive)</span>
+{% else %}
+<span class="status-clean">Status: Clean (No Steganography Detected)</span>
+{% endif %}
+
+<div class="light-stats">
+Zeros: {{ stats.zeros }}  
+Ones:  {{ stats.ones }}  
+Ratio: {{ "%.4f" % stats.ratio }}
+</div>
+</pre>
+{% endif %}
+
+</div>
+</div>
+
+</body>
+</html>
